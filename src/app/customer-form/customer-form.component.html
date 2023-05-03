@@ -1,0 +1,41 @@
+<div class="example-container">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <p>
+            <mat-form-field appearance="fill">
+                <mat-label>Navn</mat-label>
+                <input matInput placeholder="Jens Nielsen" formControlName="name" required>
+                    <mat-error *ngIf="customerFormControls['name'].hasError && customerFormControls['name'].errors?.['required']">
+                        Navn er påkrævet
+                    </mat-error>
+                    <mat-error *ngIf="customerFormControls['name'].hasError && customerFormControls['name'].errors?.['minlength']">
+                        Navnet skal være mindst fem karakterer langt
+                    </mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="customer@example.com" formControlName="email" required>
+                <mat-error *ngIf="customerFormControls['email'].hasError && customerFormControls['email'].errors?.['required']">
+                    Email er påkrævet
+                </mat-error>
+                <mat-error *ngIf="customerFormControls['email'].hasError && customerFormControls['email'].errors?.['email']">
+                    Emailen er ikke gyldig
+                </mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="fill">
+                <mat-label>Telefon</mat-label>
+                <input matInput placeholder="+4564871457" formControlName="phone" required>
+                <mat-error *ngIf="customerFormControls['phone'].hasError && customerFormControls['phone'].errors?.['required']">
+                    Telefonnummer er påkrævet
+                </mat-error>
+                <mat-error *ngIf="customerFormControls['phone'].hasError && ( customerFormControls['phone'].errors?.['minlength'] || customerFormControls['phone'].errors?.['maxlength'])">
+                    Telefonnummeret skal være mellem 8 og 11 karakterer langt
+                </mat-error>
+            </mat-form-field>
+        </p>
+        <p><button mat-raised-button type="submit">Gem</button></p>
+    </form>
+</div>

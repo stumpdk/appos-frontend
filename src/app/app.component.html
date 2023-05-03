@@ -1,4 +1,16 @@
 <mat-toolbar>
-  <mat-toolbar-row>Appos</mat-toolbar-row>
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/customers">
+      <mat-icon>list</mat-icon>
+    </button>
+    <button mat-menu-item routerLink="/customers/new">
+      <mat-icon>add</mat-icon>
+    </button>
+  </mat-menu>
+  <span>Appos</span>
+  <span class="example-spacer"></span>
 </mat-toolbar>
 <router-outlet></router-outlet>
