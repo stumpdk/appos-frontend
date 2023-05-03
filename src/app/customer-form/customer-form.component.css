@@ -1,0 +1,9 @@
+.form-center {
+    display: grid;
+    justify-content: space-around;
+  }
+
+  .example-container mat-form-field {
+    width: 320px;
+    margin-bottom: 25px;
+  }
